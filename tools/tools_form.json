@@ -1,0 +1,634 @@
+[
+  {
+    "id": "email",
+    "text": "Email",
+    "type": "email",
+    "required": true
+  },
+  {
+    "id": "name",
+    "text": "What is the name of the tool?",
+    "type": "url",
+    "required": true
+  },
+  {
+    "id": "url",
+    "text": "What is the link to the tool?",
+    "type": "string",
+    "required": true
+  },
+  {
+    "id": "description_brief",
+    "text": "Describe it briefly",
+    "type": "string",
+    "required": true
+  },
+  {
+    "id": "logo_url",
+    "text": "Give us a link to a logo or a descriptive image of the tool",
+    "type": "url",
+    "required": true
+  },
+  {
+    "id": "keywords",
+    "text": "Which keywords best describe the tool?",
+    "type": "array of strings",
+    "required": true
+  },
+  {
+    "id": "developers",
+    "text": "Who were the developers of the tool?",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "organizations",
+    "text": "Which organizations are involved in the development of the tool?",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "contact",
+    "text": "Provide some contact information regarding the tool",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "description_full",
+    "text": "Describe the tool further",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "status",
+    "text": "What is the current status of the tool?",
+    "type": "tag",
+    "required": true,
+    "answers": [
+      "Under development",
+      "Implemented"
+    ]
+  },
+  {
+    "id": "software_proglanguage",
+    "text": "In which software/programming language is it (being) implemented?",
+    "type": "array of tags",
+    "required": true,
+    "fair": "I1",
+    "answers": [
+      "C",
+      "C++",
+      "C#",
+      "Fortran",
+      "Java",
+      "Javascript",
+      "Julia",
+      "Matlab",
+      "Microsoft Excel",
+      "Perl",
+      "Python",
+      "R",
+      "Ruby",
+      "TypeScript",
+      "Visual Basic / VBScript",
+      "Other..."
+    ]
+  },
+  {
+    "id": "minimum_req",
+    "text": "What are the minimum requirements to operate the tool?",
+    "type": "array of tags",
+    "required": true,
+    "fair": "A3",
+    "answers": [
+      "Internet connection",
+      "Desktop computer (e.g. optimized for wider screens)",
+      "Mobile phone (e.g. works on small screens; use the camera)",
+      "Open source software/programming language",
+      "Licensed software/programming language",
+      "Virtual reality headset or other specialized devices",
+      "Cross-platform tool (works in Windows, Mac and Linux)",
+      "Specific operating system: Windows",
+      "Specific operating system: Mac",
+      "Specific operating system: Linux",
+      "Other..."
+    ]
+  },
+  {
+    "id": "license",
+    "text": "What is the usage rights license for the tool?",
+    "type": "string",
+    "required": true,
+    "fair": "R1",
+    "answers": [
+      "MIT License",
+      "Apache License 2.0",
+      "GNU General Public License (GPL)",
+      "Creative Commons BY",
+      "Creative Commons BY-SA",
+      "Creative Commons BY-NC",
+      "Creative Commons BY-NC-SA",
+      "Creative Commons BY-ND",
+      "Creative Commons BY-NC-ND",
+      "Creative Commons Zero (CC0)",
+      "Not stated",
+      "Don't know",
+      "Other..."
+    ]
+  },
+  {
+    "id": "year_release",
+    "text": "If available, what was the year of release?",
+    "type": "integer",
+    "required": false
+  },
+  {
+    "id": "year_lastupdate",
+    "text": "If known, in what year was it last updated?",
+    "type": "integer",
+    "required": false
+  },
+  {
+    "id": "previous_versions_available",
+    "text": "Are previous versions of the tool kept available?",
+    "type": "tag",
+    "required": true,
+    "fair": "I5",
+    "answers": [
+      "Yes",
+      "No",
+      "Only one version exists",
+      "Don't know"
+    ]
+  },
+  {
+    "id": "systems",
+    "text": "Which systems are modelled?",
+    "type": "array of tags",
+    "required": true,
+    "answers": [
+      "Agriculture",
+      "Forestry",
+      "Agroforestry",
+      "Natural/Wild"
+    ]
+  },
+  {
+    "id": "system_components",
+    "text": "Which system components are modelled?",
+    "type": "array of tags",
+    "required": true,
+    "answers": [
+      "Crop",
+      "Tree",
+      "Livestock",
+      "People"
+    ]
+  },
+  {
+    "id": "indicators",
+    "text": "What indicators are assessed/modelled?",
+    "type": "array of tags",
+    "required": true,
+    "answers": [
+      "Growth",
+      "Yield",
+      "Biodiversity",
+      "Water",
+      "Soil",
+      "Carbon",
+      "Nutrients",
+      "Mechanization",
+      "Labor",
+      "Social",
+      "Economics",
+      "Nutrition",
+      "Animal welfare",
+      "Mortality",
+      "Other..."
+    ]
+  },
+  {
+    "id": "spatial_scales",
+    "text": "At which spatial scales does the tool work?",
+    "type": "array of tags",
+    "required": true,
+    "answers": [
+      "Leaf/stem (sub-individual)",
+      "Plant/animal",
+      "Plot",
+      "One-hectare",
+      "Farm",
+      "Landscape",
+      "Catchment",
+      "Ecosystem Service Spatial Unit (ESSU)",
+      "Regional",
+      "National",
+      "Global",
+      "Other..."
+    ]
+  },
+  {
+    "id": "time_scales",
+    "text": "At which time scales does the tool work?",
+    "type": "array of tags",
+    "required": true,
+    "answers": [
+      "Hourly",
+      "Daily",
+      "Monthly",
+      "Yearly",
+      "Other..."
+    ]
+  },
+  {
+    "id": "input_data_protocols",
+    "text": "What ways can be used to input data into the tool?",
+    "type": "array of tags",
+    "required": true,
+    "fair": "I2",
+    "answers": [
+      "User enters the data directly manually",
+      "Data entry can be partially automated programmatically (e.g. loading files with previously defined setups)",
+      "Data entry can be fully automated programmatically (e.g. automatically run a script for multiple scenarios)"
+    ]
+  },
+  {
+    "id": "input_data_formats",
+    "text": "If applicable, what kind of input data formats does the tool accept?",
+    "type": "array of tags",
+    "required": false,
+    "fair": "I3",
+    "answers": [
+      "Widely used file formats (CSV, JSON, XML, etc.)",
+      "Custom file formats",
+      "HTTP (query string parameters, data in request body & file uploads)",
+      "Other..."
+    ]
+  },
+  {
+    "id": "input_data_file_formats",
+    "text": "If applicable, specify which type of input file formats does the tool accept?",
+    "type": "array of tags",
+    "required": false,
+    "answers": [
+      "XLS/XLSX (Microsoft Excel formats)",
+      "CSV",
+      "JSON",
+      "XML",
+      "HTTP GET method - Query string parameters (e.g. http://www.url.com/start?param1=a&param2=b)",
+      "HTTP POST method - Data in request body & file upload",
+      "GeoJSON",
+      "NetCDF",
+      "Shapefile",
+      "Images (e.g. png, jpg, tiff, etc)",
+      "Other..."
+    ]
+  },
+  {
+    "id": "output_data_formats",
+    "text": "What kind of output data formats does the tool generate?",
+    "type": "array of tags",
+    "required": false,
+    "fair": "I4",
+    "answers": [
+      "Widely used file formats (CSV, JSON, XML, etc.)",
+      "Custom file formats",
+      "Static content (e.g. reports on website pages, tables and graphs in the tool's interface, PDF files)",
+      "Other..."
+    ]
+  },
+  {
+    "id": "output_data_file_formats",
+    "text": "Specify which type of output file formats does the tool generate?",
+    "type": "array of tags",
+    "required": false,
+    "answers": [
+      "XLS/XLSX (Microsoft Excel formats)",
+      "CSV",
+      "JSON",
+      "Shapefile",
+      "Images (e.g. png, jpg, tiff, etc)",
+      "PDF",
+      "Other..."
+    ]
+  },
+  {
+    "id": "end_users",
+    "text": "For what kind of end users can the tool be useful?",
+    "type": "array of tags",
+    "required": true,
+    "answers": [
+      "Policy-maker",
+      "Farmer",
+      "Landowner",
+      "Farm advisor",
+      "Wholesaler",
+      "Retailer",
+      "Carbon trader",
+      "Final consumer",
+      "Other..."
+    ]
+  },
+  {
+    "id": "use_research",
+    "text": "What might be its primary usage or purpose? [Research]",
+    "type": "integer (1, 0, -1)",
+    "required": true,
+    "answers": [
+      "Most relevant (1)",
+      "Relevant (0)",
+      "Least relevant (-1)"
+    ]
+  },
+  {
+    "id": "use_education",
+    "text": "What might be its primary usage or purpose? [Education]",
+    "type": "integer",
+    "required": true,
+    "answers": [
+      "Most relevant (1)",
+      "Relevant (0)",
+      "Least relevant (-1)"
+    ]
+  },
+  {
+    "id": "use_planning",
+    "text": "What might be its primary usage or purpose? [Planning/Design]",
+    "type": "integer",
+    "required": true,
+    "answers": [
+      "Most relevant (1)",
+      "Relevant (0)",
+      "Least relevant (-1)"
+    ]
+  },
+  {
+    "id": "use_implementation",
+    "text": "What might be its primary usage or purpose? [Implementation]",
+    "type": "integer",
+    "required": true,
+    "answers": [
+      "Most relevant (1)",
+      "Relevant (0)",
+      "Least relevant (-1)"
+    ]
+  },
+  {
+    "id": "use_management",
+    "text": "What might be its primary usage or purpose? [Management]",
+    "type": "integer",
+    "required": true,
+    "answers": [
+      "Most relevant (1)",
+      "Relevant (0)",
+      "Least relevant (-1)"
+    ]
+  },
+  {
+    "id": "use_monitoring",
+    "text": "What might be its primary usage or purpose? [Monitoring/Evaluating]",
+    "type": "integer",
+    "required": true,
+    "answers": [
+      "Most relevant (1)",
+      "Relevant (0)",
+      "Least relevant (-1)"
+    ]
+  },
+  {
+    "id": "use_forecasting",
+    "text": "What might be its primary usage or purpose? [Forecasting]",
+    "type": "integer",
+    "required": true,
+    "answers": [
+      "Most relevant (1)",
+      "Relevant (0)",
+      "Least relevant (-1)"
+    ]
+  },
+  {
+    "id": "languages",
+    "text": "In which languages is the tool available?",
+    "type": "array of tags",
+    "required": true,
+    "fair": "A4",
+    "answers": [
+      "Czech",
+      "Dutch",
+      "English",
+      "Finish",
+      "French",
+      "German",
+      "Italian",
+      "Other..."
+    ]
+  },
+  {
+    "id": "url_persistent",
+    "text": "Is the link to the tool a unique and persistent identifier?",
+    "type": "tag",
+    "required": true,
+    "fair": "F1",
+    "answers": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "access_barrier",
+    "text": "Is there any barrier to accessing the tool?",
+    "type": "tag",
+    "required": true,
+    "fair": "A1",
+    "answers": [
+      "No, direct download/access through a web link",
+      "User registration needed",
+      "Access to the tool needs to be granted (e.g. tool owner needs to give permission after user registration; tool owner sends tool after receiving a request email)",
+      "Access to the tool is evaluated before being granted, due to ethical, legal or contractual constrains (e.g. privacy, highly sensitive data)"
+    ]
+  },
+  {
+    "id": "access_procedure",
+    "text": "If applicable, what is the procedure to request access to the tool?",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "access_procedure_documentation",
+    "text": "If applicable, is the procedure described above properly explained in the documentation?",
+    "type": "tag",
+    "required": false,
+    "answers": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "listed_other_databases",
+    "text": "Is the tool also listed in other databases?",
+    "type": "tag",
+    "required": false,
+    "fair": "F3",
+    "answers": [
+      "Yes",
+      "No",
+      "Don't know"
+    ]
+  },
+  {
+    "id": "listed_other_databases_list",
+    "text": "If applicable and known, in which databases is it listed?",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "integrated_other_tools",
+    "text": "Is the tool integrated with other tools or services?",
+    "type": "tag",
+    "required": false,
+    "fair": "I6",
+    "answers": [
+      "Yes",
+      "No",
+      "Don't know"
+    ]
+  },
+  {
+    "id": "integrated_other_tools_list",
+    "text": "If known, state those tools or services with which interoperability relationships exist.",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "documentation_available",
+    "text": "Is the documentation fully available?",
+    "type": "tag",
+    "required": true,
+    "fair": "F2",
+    "answers": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "documentation_accessible",
+    "text": "Is the documentation fully accessible?",
+    "type": "tag",
+    "required": true,
+    "fair": "A2",
+    "answers": [
+      "Yes",
+      "Some of it",
+      "No",
+      "Don't know"
+    ]
+  },
+  {
+    "id": "url_documentation",
+    "text": "If available, what is/are the link(s) to the documentation of the tool?",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "documentation_theoretical_background",
+    "text": "Does it refer to publications, articles, reports or other sources that support its theoretical background?",
+    "type": "tag",
+    "required": true,
+    "answers": [
+      "Yes",
+      "Incomplete",
+      "No",
+      "Don't know"
+    ]
+  },
+  {
+    "id": "documentation_theoretical_background_list",
+    "text": "If applicable, indicate those publications references.",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "data_provenance",
+    "text": "Does it contain information about data provenance?",
+    "type": "tag",
+    "required": true,
+    "fair": "R2",
+    "answers": [
+      "Yes",
+      "Incomplete",
+      "No",
+      "Don't know",
+      "Not applicable"
+    ]
+  },
+  {
+    "id": "development_process",
+    "text": "Does it describe the tool development process?",
+    "type": "tag",
+    "required": true,
+    "fair": "R3",
+    "answers": [
+      "Yes",
+      "Not completely",
+      "No",
+      "Don't know"
+    ]
+  },
+  {
+    "id": "url_training_materials",
+    "text": "If available, provide links to training material on how to use the tool.",
+    "type": "string",
+    "required": false,
+    "fair": "A5"
+  },
+  {
+    "id": "documentation_contribute",
+    "text": "Does the documentation contain indications on how to contribute to the development of the tool?",
+    "type": "tag",
+    "required": true,
+    "fair": "R4",
+    "answers": [
+      "Yes",
+      "No",
+      "Don't know"
+    ]
+  },
+  {
+    "id": "digitaf_tool",
+    "text": "Is this tool being co-developed or improved within DigitAF activities?",
+    "type": "tag",
+    "required": true,
+    "answers": [
+      "Yes",
+      "No",
+      "Don't know"
+    ]
+  },
+  {
+    "id": "digitaf_tool_ll",
+    "text": "If applicable, in which Living Labs is it being tested?",
+    "type": "tag",
+    "required": false,
+    "answers": [
+      "Czech Republic LL",
+      "Finland LL",
+      "Germany LL",
+      "Italy LL",
+      "Netherlands LL",
+      "United Kingdom LL"
+    ]
+  },
+  {
+    "id": "feedback_tool_info",
+    "text": "Is there any relevant information about the tool that hasn't been collected in the previous questions?",
+    "type": "string",
+    "required": false
+  },
+  {
+    "id": "feedback_general",
+    "text": "Any suggestions about this questionnaire, or the Tools Database in general?",
+    "type": "string",
+    "required": false
+  }
+]
