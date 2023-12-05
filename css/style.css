@@ -1,0 +1,156 @@
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('fonts/segoeui.ttf')  format('truetype');
+}
+@font-face {
+	font-family: 'Segoe UI Bold';
+	src: url('fonts/segoeuib.ttf')  format('truetype');
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffbf6;
+  font-size: 15px;
+}
+
+p {
+  font-size: 15px;
+}
+
+.note p {
+  font-size: 75%;
+}
+
+.card.tool .card-text {
+  font-size: 100%;
+}
+
+.card.tool .btn-crop {
+  color: orange;
+  border: 2px solid orange;
+  width: 100px;
+  font-size: 90%;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.card.tool .btn-tree {
+  color: green;
+  border: 2px solid green;
+  width: 100px;
+  font-size: 90%;
+  font-weight: bold;
+  border-radius: 50%;
+}
+.card.tool .btn-livestock {
+  color: darkblue;
+  border: 2px solid darkblue;
+  width: 100px;
+  font-size: 90%;
+  font-weight: bold;
+  border-radius: 50%;
+}
+.card.tool .btn-people {
+  color: darkgray;
+  border: 2px solid darkgray;
+  width: 100px;
+  font-size: 90%;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.btn-small-title {
+  font-size: 75%;
+  color: darkgray;
+  font-style: italic;
+}
+
+.btn-digitaf {
+  font-family: 'Segoe UI Bold';
+  color: #253d5b;
+  font-size: 140%;
+}
+.btn-digitaf:hover {
+  text-decoration: underline;
+}
+
+.h-fair-container {
+  position: relative;
+}
+.h-fair {
+  display: inline;
+  height: 2vw;
+}
+.h-fair-title {
+  margin: 0;
+  padding: 0;
+  font-size: 0.5vw;
+  text-align: center;
+}
+.h-fair-score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.5vw;
+  color: white;
+}
+
+table.fair-score, table.fair-score tr, table.fair-score td {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  padding: 0px;
+}
+
+.rotate90 { transform: rotate(90deg); }
+.rotate180 { transform: rotate(180deg); }
+.rotate270 { transform: rotate(270deg); }
+
+.card-img-top {
+  width: 100%;
+  height: 10vw;
+  object-fit: cover;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+.card-title {
+  margin-bottom: 1.25rem;
+  color: green;
+}
+.card-title a,
+.card-title a:hover,
+.card-title a:active,
+.card-title a:visited {
+  color: green;
+}
+.card-text {
+  font-size: 75%;
+}
+
+.filters label {
+  font-size: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  transition: box-shadow .3s;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.card-img-top {
+  background: #ccc;
+
+}
+
+.box:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
