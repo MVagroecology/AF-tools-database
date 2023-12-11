@@ -1,35 +1,16 @@
 <script>
-// component creation
 module.exports = {
   name: "contents",
   data() {
     return {
       tools: [],
       filteredTools: [],
-      isReady: false,
-      stack: null,
-      software_proglanguage: [
-        "C",
-        "C++",
-        "C#",
-        "Fortran",
-        "Java",
-        "Javascript",
-        "Julia",
-        "Matlab",
-        "Microsoft Excel",
-        "Perl",
-        "Python",
-        "R",
-        "Ruby",
-        "TypeScript",
-        "Visual Basic / VBScript"
-      ],
-      status: [ "Under development", "Implemented" ]
+      isReady: false
     }
   },
   created() {
     this.getToolsData();
+    VueBus.$on('updateFilteredTools', this.updateFiltered)
   },
   methods: {
     calculateAverageOfArray(arr) {
@@ -228,27 +209,41 @@ module.exports = {
       this.isReady = true
     },
     updateFiltered() {
-      var filters = {
-        //Stack: this.stack,
-        status: this.status,
-        software_proglanguage: this.software_proglanguage
+      if (!('filtering' in this.$refs)) {
+        return
       }
-
+      var filters = this.$refs.filtering.$data.filters
+      var search = this.$refs.filtering.$data.search
       this.filteredTools = Object.filter(this.tools, function(tool) {
         var yesOrNo = true
-        for (const [key, value] of Object.entries(filters)) {
-            toolValue = tool[key]
+
+        for (const [filter_id, filter_value] of Object.entries(search)) {
+
+          if (filter_value.length > 0) {
+
+            toolValue = tool[filter_id]
+
             if (toolValue == "") {
               yesOrNo = yesOrNo && false
+
             } else {
-              if (key == "status") {
-                yesOrNo = yesOrNo && value.includes(toolValue)
-              } else if (key == "software_proglanguage") {
-                yesOrNo = yesOrNo && toolValue.some(a => value.includes(a))
+              var filter = filters[filter_id]
+              
+              if ('answers' in filter) {
+
+                if (filter.type.includes('array')) {
+                  yesOrNo = yesOrNo && toolValue.some(a => filter_value.includes(a))
+                } else {
+                  yesOrNo = yesOrNo && filter_value.includes(toolValue)
+                }
+
               } else {
-                yesOrNo = yesOrNo && toolValue.toLowerCase().includes(value.toLowerCase())
+                // TODO to be implemented
               }
             }
+          } else {
+            continue;
+          }
         }
         return yesOrNo
       })      
@@ -288,63 +283,13 @@ module.exports = {
     <div class="note text-center mb-2">
       <p>This tool is in constant change. The previous version, and old database, is still available  <a target="_blank" href="https://mvarc.eu/tools/dev/digitaf_tools/">here</a>.</p>
     </div>
-    <div class="row no-gutters">
-      <div class="col-3 filters no-gutters">
-        <div class="col-12 mb-2 text-center">
-          <a class="btn btn-digitaf mt-2" href="https://forms.gle/cKwFUzGuckhfSHum6" role="button"><b>Add a new tool</b></a>
-        </div>
-        <div class="col-12 mb-2 row">
-          <!--p class="mb-1"><b>Purpose</b></p>
-          <select class="form-control" v-model="license">
-            <option value=null>-</option>
-            <option value=Apache>Apache</option>
-            <option value=GPLv2>GPLv2</option>
-            <option value=GPLv3>GPLv3</option>
-            <option value=MIT>MIT</option>
-          </select-->
-          <p class="col-12 mb-1"><b>Status</b></p>
-          <div class="col-12"><input type="checkbox" id="dev" value="Under development" v-model="status">
-          <label for="dev">Under development</label></div>
-          <div class="col-12"><input type="checkbox" id="prod" value="Implemented" v-model="status">
-          <label for="prod">Implemented</label></div>
-        </div>
-        <div class="col-12 mb-2 row">
-          <p class="col-12 mb-1"><b>Software/Programming language</b></p>
-          <div class="col-12"><input type="checkbox" id="c" value="C" v-model="software_proglanguage">
-          <label for="c">C</label></div>
-          <div class="col-12"><input type="checkbox" id="cplus" value="C++" v-model="software_proglanguage">
-          <label for="cplus">C++</label></div>
-          <div class="col-12"><input type="checkbox" id="cplus" value="C#" v-model="software_proglanguage">
-          <label for="csharp">C#</label></div>
-          <div class="col-12"><input type="checkbox" id="fortran" value="Fortran" v-model="software_proglanguage">
-          <label for="fortran">Fortran</label></div>
-          <div class="col-12"><input type="checkbox" id="java" value="Java" v-model="software_proglanguage">
-          <label for="java">Java</label></div>
-          <div class="col-12"><input type="checkbox" id="javascript" value="Javascript" v-model="software_proglanguage">
-          <label for="javascript">Javascript</label></div>
-          <div class="col-12"><input type="checkbox" id="julia" value="Julia" v-model="software_proglanguage">
-          <label for="julia">Julia</label></div>
-          <div class="col-12"><input type="checkbox" id="matlab" value="Matlab" v-model="software_proglanguage">
-          <label for="matlab">Matlab</label></div>
-          <div class="col-12"><input type="checkbox" id="excel" value="Microsoft Excel" v-model="software_proglanguage">
-          <label for="excel">Microsoft Excel</label></div>
-          <div class="col-12"><input type="checkbox" id="perl" value="Perl" v-model="software_proglanguage">
-          <label for="perl">Perl</label></div>
-          <div class="col-12"><input type="checkbox" id="python" value="Python" v-model="software_proglanguage">
-          <label for="python">Python</label></div>
-          <div class="col-12"><input type="checkbox" id="r" value="R" v-model="software_proglanguage">
-          <label for="r">R</label></div>
-          <div class="col-12"><input type="checkbox" id="ruby" value="Ruby" v-model="software_proglanguage">
-          <label for="ruby">Ruby</label></div>
-          <div class="col-12"><input type="checkbox" id="typescript" value="TypeScript" v-model="software_proglanguage">
-          <label for="typescript">TypeScript</label></div>
-          <div class="col-12"><input type="checkbox" id="vb" value="Visual Basic / VBScript" v-model="software_proglanguage">
-          <label for="vb">Visual Basic / VBScript</label></div>
-        </div>
+    <div class="row">
+      <div class="col-3">
+        <filtering ref="filtering"></filtering>
       </div>
       <div class="col-9 row">
         <div class="col-sm-6 mb-4" v-for="tool in filteredTools" :key="tool.id">
-          <div class="card tool box h-100">
+          <div class="card tool box">
             <!--div class="card-header text-center" id="headingOne" data-toggle="collapse" data-target="#collapseOne">
               <p class="mb-0"><b><a v-if="tool.Link" :href="tool.Link" target="_blank">{{ tool.Tool }}</a><span v-else>{{ tool.Tool }}</span></b></p>
             </div-->

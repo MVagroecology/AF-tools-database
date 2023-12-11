@@ -1,3 +1,6 @@
+httpVueLoader.register(Vue, 'vue/filtering.vue');
+httpVueLoader.register(Vue, 'vue/checkbox.vue');
+
 Object.filter = function(obj, predicate) {
 	let result = {}, key;
 
@@ -32,9 +35,11 @@ app = new Vue({
 	router: router,
 	data: {
 		isLoading: true,
-		tools: []
+		tools: [],
+		form: []
 	},
 	created() {
+		this.getFormData();
 		this.getToolsData();
 	},
 	methods: {
@@ -48,6 +53,13 @@ app = new Vue({
 						});
 				}
 			}).done(myself.isLoading = false)
+		},
+		getFormData() {
+      var myself = this
+
+			$.getJSON('tools/tools_form.json', function (form) {
+				myself.form = form
+			})
 		}
   }
 });

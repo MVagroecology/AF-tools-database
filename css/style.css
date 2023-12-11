@@ -119,6 +119,12 @@ table.fair-score, table.fair-score tr, table.fair-score td {
 .mb-50 {
   margin-bottom: 50px;
 }
+.card-header .btn-link {
+  color: green;
+  text-transform: uppercase;
+  font-size: 60%;
+  font-weight: bold;
+}
 .card-title {
   margin-bottom: 1.25rem;
   color: green;
@@ -131,6 +137,11 @@ table.fair-score, table.fair-score tr, table.fair-score td {
 }
 .card-text {
   font-size: 75%;
+}
+.card-header {
+  padding: 0;
+  border-bottom: none;
+  background-color: transparent;
 }
 
 .filters label {
@@ -153,4 +164,53 @@ table.fair-score, table.fair-score tr, table.fair-score td {
 
 .box:hover {
   box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.accordion button[data-toggle="collapse"]::after {
+  font-family: "FontAwesome";
+	content: "\f107";
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  transition: all 0.30s;
+
+  /* rotate "play" icon from > (right arrow) to down arrow */
+  -webkit-transform: rotate(180deg);
+  -moz-transform:    rotate(180deg);
+  -ms-transform:     rotate(180deg);
+  -o-transform:      rotate(180deg);
+  transform:         rotate(180deg);
+}
+.accordion button[data-toggle="collapse"]::after {
+  top: 7px;
+}
+.accordion button[data-toggle="collapse"].collapsed::after {
+  /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+  -webkit-transform: rotate(0deg);
+  -moz-transform:    rotate(0deg);
+  -ms-transform:     rotate(0deg);
+  -o-transform:      rotate(0deg);
+  transform:         rotate(0deg);
+}
+
+.add-scroll {
+  overflow: hidden;
+}
+
+.add-scroll > div {
+  overflow-y: scroll;
+}
+
+.add-scroll > div.card-body {
+  max-height: 160px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+}
+
+#accordionex .form-control,
+#accordionex .input-group-text {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: calc(1.5em + 2px);
 }

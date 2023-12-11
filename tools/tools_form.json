@@ -62,6 +62,8 @@
   {
     "id": "status",
     "text": "What is the current status of the tool?",
+    "short_text": "Status",
+    "filter": 1,
     "type": "tag",
     "required": true,
     "answers": [
@@ -72,6 +74,8 @@
   {
     "id": "software_proglanguage",
     "text": "In which software/programming language is it (being) implemented?",
+    "short_text": "Software/Programming language",
+    "filter": 1,
     "type": "array of tags",
     "required": true,
     "fair": "I1",
@@ -97,6 +101,8 @@
   {
     "id": "minimum_req",
     "text": "What are the minimum requirements to operate the tool?",
+    "short_text": "Minimum requirements",
+    "filter": 1,
     "type": "array of tags",
     "required": true,
     "fair": "A3",
@@ -117,6 +123,8 @@
   {
     "id": "license",
     "text": "What is the usage rights license for the tool?",
+    "short_text": "License",
+    "filter": 1,
     "type": "string",
     "required": true,
     "fair": "R1",
@@ -151,6 +159,7 @@
   {
     "id": "previous_versions_available",
     "text": "Are previous versions of the tool kept available?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "fair": "I5",
@@ -164,6 +173,8 @@
   {
     "id": "systems",
     "text": "Which systems are modelled?",
+    "short_text": "Systems",
+    "filter": 2,
     "type": "array of tags",
     "required": true,
     "answers": [
@@ -176,6 +187,8 @@
   {
     "id": "system_components",
     "text": "Which system components are modelled?",
+    "short_text": "System components",
+    "filter": 2,
     "type": "array of tags",
     "required": true,
     "answers": [
@@ -188,6 +201,8 @@
   {
     "id": "indicators",
     "text": "What indicators are assessed/modelled?",
+    "short_text": "Indicators",
+    "filter": 2,
     "type": "array of tags",
     "required": true,
     "answers": [
@@ -211,6 +226,8 @@
   {
     "id": "spatial_scales",
     "text": "At which spatial scales does the tool work?",
+    "short_text": "Spatial scale",
+    "filter": 1,
     "type": "array of tags",
     "required": true,
     "answers": [
@@ -230,7 +247,9 @@
   },
   {
     "id": "time_scales",
-    "text": "At which time scales does the tool work?",
+    "text": "At which time steps does the tool work?",
+    "short_text": "Time step",
+    "filter": 2,
     "type": "array of tags",
     "required": true,
     "answers": [
@@ -244,6 +263,7 @@
   {
     "id": "input_data_protocols",
     "text": "What ways can be used to input data into the tool?",
+    "filter": 0,
     "type": "array of tags",
     "required": true,
     "fair": "I2",
@@ -256,6 +276,7 @@
   {
     "id": "input_data_formats",
     "text": "If applicable, what kind of input data formats does the tool accept?",
+    "filter": 0,
     "type": "array of tags",
     "required": false,
     "fair": "I3",
@@ -269,6 +290,8 @@
   {
     "id": "input_data_file_formats",
     "text": "If applicable, specify which type of input file formats does the tool accept?",
+    "short_text": "Input data formats",
+    "filter": 1,
     "type": "array of tags",
     "required": false,
     "answers": [
@@ -288,6 +311,7 @@
   {
     "id": "output_data_formats",
     "text": "What kind of output data formats does the tool generate?",
+    "filter": 0,
     "type": "array of tags",
     "required": false,
     "fair": "I4",
@@ -301,6 +325,8 @@
   {
     "id": "output_data_file_formats",
     "text": "Specify which type of output file formats does the tool generate?",
+    "short_text": "Output data formats",
+    "filter": 1,
     "type": "array of tags",
     "required": false,
     "answers": [
@@ -316,9 +342,12 @@
   {
     "id": "end_users",
     "text": "For what kind of end users can the tool be useful?",
+    "short_text": "End user",
+    "filter": 1,
     "type": "array of tags",
     "required": true,
     "answers": [
+      "Researcher",
       "Policy-maker",
       "Farmer",
       "Landowner",
@@ -410,6 +439,8 @@
   {
     "id": "languages",
     "text": "In which languages is the tool available?",
+    "short_text": "Language",
+    "filter": 1,
     "type": "array of tags",
     "required": true,
     "fair": "A4",
@@ -427,6 +458,7 @@
   {
     "id": "url_persistent",
     "text": "Is the link to the tool a unique and persistent identifier?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "fair": "F1",
@@ -438,6 +470,7 @@
   {
     "id": "access_barrier",
     "text": "Is there any barrier to accessing the tool?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "fair": "A1",
@@ -457,6 +490,7 @@
   {
     "id": "access_procedure_documentation",
     "text": "If applicable, is the procedure described above properly explained in the documentation?",
+    "filter": 0,
     "type": "tag",
     "required": false,
     "answers": [
@@ -467,6 +501,7 @@
   {
     "id": "listed_other_databases",
     "text": "Is the tool also listed in other databases?",
+    "filter": 0,
     "type": "tag",
     "required": false,
     "fair": "F3",
@@ -485,6 +520,7 @@
   {
     "id": "integrated_other_tools",
     "text": "Is the tool integrated with other tools or services?",
+    "filter": 0,
     "type": "tag",
     "required": false,
     "fair": "I6",
@@ -497,12 +533,14 @@
   {
     "id": "integrated_other_tools_list",
     "text": "If known, state those tools or services with which interoperability relationships exist.",
+    "filter": 0,
     "type": "string",
     "required": false
   },
   {
     "id": "documentation_available",
     "text": "Is the documentation fully available?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "fair": "F2",
@@ -514,6 +552,7 @@
   {
     "id": "documentation_accessible",
     "text": "Is the documentation fully accessible?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "fair": "A2",
@@ -533,6 +572,7 @@
   {
     "id": "documentation_theoretical_background",
     "text": "Does it refer to publications, articles, reports or other sources that support its theoretical background?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "answers": [
@@ -551,6 +591,7 @@
   {
     "id": "data_provenance",
     "text": "Does it contain information about data provenance?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "fair": "R2",
@@ -564,6 +605,7 @@
   {
     "id": "development_process",
     "text": "Does it describe the tool development process?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "fair": "R3",
@@ -584,6 +626,7 @@
   {
     "id": "documentation_contribute",
     "text": "Does the documentation contain indications on how to contribute to the development of the tool?",
+    "filter": 0,
     "type": "tag",
     "required": true,
     "fair": "R4",
@@ -596,6 +639,8 @@
   {
     "id": "digitaf_tool",
     "text": "Is this tool being co-developed or improved within DigitAF activities?",
+    "short_text": "Is a DigitAF tool",
+    "filter": 3,
     "type": "tag",
     "required": true,
     "answers": [
@@ -607,6 +652,8 @@
   {
     "id": "digitaf_tool_ll",
     "text": "If applicable, in which Living Labs is it being tested?",
+    "short_text": "Tested in DigitAF Living Labs",
+    "filter": 3,
     "type": "tag",
     "required": false,
     "answers": [
