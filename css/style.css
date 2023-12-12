@@ -74,6 +74,19 @@ p {
   text-decoration: underline;
 }
 
+.sorting select {
+  margin-left: auto; 
+  margin-right: 0;
+  width: 20rem;
+  font-size: 15px;
+}
+
+.sorting p {
+  font-size: 15px;
+  margin-top: 7px;
+  margin-bottom: 0;
+}
+
 .h-fair-container {
   position: relative;
 }

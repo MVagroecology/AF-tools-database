@@ -1,6 +1,7 @@
 <script>
 module.exports = {
   name: "filtering",
+	props: [ "form" ],
   data() {
     return {
 			search: {},
@@ -8,7 +9,7 @@ module.exports = {
 		}
 	},
 	created() {
-		for (question of this.$root.$data.form) {
+		for (question of this.form) {
 			if ('filter' in question && question.filter > 0) {
 				this.$set(this.filters, question.id, question)
 				this.$set(this.search, question.id, [])

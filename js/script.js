@@ -1,5 +1,6 @@
 httpVueLoader.register(Vue, 'vue/filtering.vue');
 httpVueLoader.register(Vue, 'vue/checkbox.vue');
+httpVueLoader.register(Vue, 'vue/sorting.vue');
 
 Object.filter = function(obj, predicate) {
 	let result = {}, key;
@@ -34,34 +35,7 @@ app = new Vue({
 	el: '#app',
 	router: router,
 	data: {
-		isLoading: true,
-		tools: [],
-		form: []
 	},
-	created() {
-		this.getFormData();
-		this.getToolsData();
-	},
-	methods: {
-    getToolsData() {
-      var myself = this
-
-			$.getJSON('tools/tools_list.json', function (data) {
-				for (var i = 0; i < data.length; i++) {
-						$.getJSON('tools/' + data[i] + '.json', function (tool) {
-								myself.tools.push(tool)
-						});
-				}
-			}).done(myself.isLoading = false)
-		},
-		getFormData() {
-      var myself = this
-
-			$.getJSON('tools/tools_form.json', function (form) {
-				myself.form = form
-			})
-		}
-  }
 });
 
 function filterObject(obj, callback) {

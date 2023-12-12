@@ -4,15 +4,48 @@ module.exports = {
   data() {
     return {
       tools: [],
+      form: [],
       filteredTools: [],
       isReady: false
     }
   },
   created() {
-    this.getToolsData();
+		this.getFormData();
+		this.getToolsData();
     VueBus.$on('updateFilteredTools', this.updateFiltered)
+    VueBus.$on('updateToolSorting', this.updateSorting)
+  },
+  watch: {
+    tools: {
+      deep: true,
+      handler: function() {
+        this.filteredTools = Object.values(this.tools)
+        this.updateSorting()
+      }
+    }
   },
   methods: {
+    getToolsData() {
+      var myself = this
+
+			$.getJSON('tools/tools_list.json', function (data) {
+				for (var i = 0; i < data.length; i++) {
+						$.getJSON('tools/' + data[i] + '.json', function (tool) {
+								myself.tools.push(tool)
+						});
+				}
+			})
+		},
+		getFormData() {
+      var myself = this
+
+			$.getJSON('tools/tools_form.json', function (form) {
+				myself.form = form
+			})
+		},
+    isEven(num) {
+      return num % 2 == 0;
+    },
     calculateAverageOfArray(arr) {
         var total = 0;
         var count = 0;
@@ -203,10 +236,13 @@ module.exports = {
 
       return Math.round(((R1 + R2 + R3 + R4) / 4) * 10) * 10
     },
-    getToolsData() {
-      this.tools = this.$root.$data.tools
-      this.filteredTools = this.$root.$data.tools
-      this.isReady = true
+    updateSorting() {
+      if (!('sorting' in this.$refs)) {
+        return
+      }
+      var sorting_data = this.$refs.sorting.$data
+      var sorting_option = sorting_data.sorting_options[sorting_data.selected_option]
+      this.filteredTools = sorting_option.fn(this.filteredTools)
     },
     updateFiltered() {
       if (!('filtering' in this.$refs)) {
@@ -214,7 +250,7 @@ module.exports = {
       }
       var filters = this.$refs.filtering.$data.filters
       var search = this.$refs.filtering.$data.search
-      this.filteredTools = Object.filter(this.tools, function(tool) {
+      this.filteredTools = Object.values(this.tools).filter(function(tool) {
         var yesOrNo = true
 
         for (const [filter_id, filter_value] of Object.entries(search)) {
@@ -246,7 +282,8 @@ module.exports = {
           }
         }
         return yesOrNo
-      })      
+      })
+      this.updateSorting()
     },
     imageLink(tool) {
       if ('logo_url' in tool) {
@@ -257,47 +294,39 @@ module.exports = {
     }
   },
   computed: {
-  },
-  watch: {
-    // TODO #4 review filters
-    stack(newValue, oldValue) {
-      this.updateFiltered();
-    },
-    status: {
-      handler: function(newValue, oldValue) { this.updateFiltered(); },
-      deep: true
-    },
-    software_proglanguage: {
-      handler: function(newValue, oldValue) { this.updateFiltered(); },
-      deep: true
-    },
-    license(newValue, oldValue) {
-      this.updateFiltered();
-    },
-  },
+  }
 }
 </script>
 
 <template>
-  <div v-if="isReady">
+  <div>
     <div class="note text-center mb-2">
       <p>This tool is in constant change. The previous version, and old database, is still available  <a target="_blank" href="https://mvarc.eu/tools/dev/digitaf_tools/">here</a>.</p>
     </div>
-    <div class="row">
+    <div class="row no-gutters">
       <div class="col-3">
-        <filtering ref="filtering"></filtering>
+        <filtering ref="filtering" :form="form"></filtering>
       </div>
-      <div class="col-9 row">
-        <div class="col-sm-6 mb-4" v-for="tool in filteredTools" :key="tool.id">
-          <div class="card tool box">
-            <!--div class="card-header text-center" id="headingOne" data-toggle="collapse" data-target="#collapseOne">
-              <p class="mb-0"><b><a v-if="tool.Link" :href="tool.Link" target="_blank">{{ tool.Tool }}</a><span v-else>{{ tool.Tool }}</span></b></p>
-            </div-->
-            <img class="card-img-top" :src="imageLink(tool)" :alt="tool.name">
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="col-9">
+        <div class="col-12 row no-gutters mb-3 sorting">
+          <div class="col-6">
+            <p v-if="filteredTools.length > 1">Displaying {{ filteredTools.length }} tools</p>
+            <p v-if="filteredTools.length == 1">Displaying 1 tool</p>
+            <p v-if="filteredTools.length == 0">No tools to display</p>
+          </div>
+          <sorting ref="sorting" class="col-6"></sorting>
+        </div>
+        <div class="col-12 row no-gutters tools">
+          <div class="col-6 mb-4" :class="{ 'pr-2': isEven(idx), 'pl-2': !isEven(idx) }" v-for="tool, idx in filteredTools" :key="tool.id">
+            <div class="card tool">
+              <img class="card-img-top" :src="imageLink(tool)" :alt="tool.name">
               <div class="card-body row">
-                <div class="col-12"><h5 class="card-title text-center"><b>{{ tool.name }}</b></h5></div><!--router-link :to="tool.id">{{ tool.name }}</router-link-->
-                <div class="col-9 text-center"><p class="card-text">{{tool.description_brief}}</p></div>
+                <div class="col-12">
+                  <h5 class="card-title text-center"><b>{{ tool.name }}</b></h5>
+                </div><!--router-link :to="tool.id">{{ tool.name }}</router-link-->
+                <div class="col-9 text-center">
+                  <p class="card-text">{{tool.description_brief}}</p>
+                </div>
                 <div class="col-3">
                   <table class="fair-score" cellspacing=0>
                     <tbody>
