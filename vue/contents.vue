@@ -3,46 +3,18 @@ module.exports = {
   name: "contents",
   data() {
     return {
-      tools: [],
-      form: [],
-      filteredTools: [],
-      isReady: false
+      filteredTools: []
     }
   },
-  created() {
-		this.getFormData();
-		this.getToolsData();
+  mounted() {
+    this.setupTools()
+
+    this.$watch('$root.$data.tools', this.setupTools, { deep: true })
+
     VueBus.$on('updateFilteredTools', this.updateFiltered)
     VueBus.$on('updateToolSorting', this.updateSorting)
   },
-  watch: {
-    tools: {
-      deep: true,
-      handler: function() {
-        this.filteredTools = Object.values(this.tools)
-        this.updateSorting()
-      }
-    }
-  },
   methods: {
-    getToolsData() {
-      var myself = this
-
-			$.getJSON('tools/tools_list.json', function (data) {
-				for (var i = 0; i < data.length; i++) {
-						$.getJSON('tools/' + data[i] + '.json', function (tool) {
-								myself.tools.push(tool)
-						});
-				}
-			})
-		},
-		getFormData() {
-      var myself = this
-
-			$.getJSON('tools/tools_form.json', function (form) {
-				myself.form = form
-			})
-		},
     isEven(num) {
       return num % 2 == 0;
     },
@@ -244,13 +216,20 @@ module.exports = {
       var sorting_option = sorting_data.sorting_options[sorting_data.selected_option]
       this.filteredTools = sorting_option.fn(this.filteredTools)
     },
+    setupTools(tools) {
+      if (!tools) {
+        if (!this.$root.$data.tools) return
+        tools = this.$root.$data.tools
+      }
+      this.filteredTools = tools.slice().sort((a, b) => a.name.localeCompare(b.name))
+    },
     updateFiltered() {
       if (!('filtering' in this.$refs)) {
         return
       }
       var filters = this.$refs.filtering.$data.filters
       var search = this.$refs.filtering.$data.search
-      this.filteredTools = Object.values(this.tools).filter(function(tool) {
+      this.filteredTools = Object.values(this.$root.$data.tools).filter(function(tool) {
         var yesOrNo = true
 
         for (const [filter_id, filter_value] of Object.entries(search)) {
@@ -305,7 +284,7 @@ module.exports = {
     </div>
     <div class="row no-gutters">
       <div class="col-3">
-        <filtering ref="filtering" :form="form"></filtering>
+        <filtering ref="filtering"></filtering>
       </div>
       <div class="col-9">
         <div class="col-12 row no-gutters mb-3 sorting">
@@ -322,8 +301,8 @@ module.exports = {
               <img class="card-img-top" :src="imageLink(tool)" :alt="tool.name">
               <div class="card-body row">
                 <div class="col-12">
-                  <h5 class="card-title text-center"><b>{{ tool.name }}</b></h5>
-                </div><!--router-link :to="tool.id">{{ tool.name }}</router-link-->
+                  <h5 class="card-title text-center"><b><router-link :to="tool.id" :tool="tool">{{ tool.name }}</router-link></b></h5>
+                </div>
                 <div class="col-9 text-center">
                   <p class="card-text">{{tool.description_brief}}</p>
                 </div>

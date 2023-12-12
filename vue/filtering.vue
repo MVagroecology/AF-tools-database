@@ -1,22 +1,26 @@
 <script>
 module.exports = {
   name: "filtering",
-	props: [ "form" ],
   data() {
     return {
 			search: {},
 			filters: {}
 		}
 	},
-	created() {
-		for (question of this.form) {
-			if ('filter' in question && question.filter > 0) {
-				this.$set(this.filters, question.id, question)
-				this.$set(this.search, question.id, [])
-			}
-		}
+	mounted() {
+		this.updateFilters(this.$root.$data.form)
+		this.$watch('$root.$data.form', this.updateFilters, { deep: true })
 	},
 	methods: {
+		updateFilters(form) {
+			if (!form) return
+			for (question of form) {
+				if ('filter' in question && question.filter > 0) {
+					this.$set(this.filters, question.id, question)
+					this.$set(this.search, question.id, [])
+				}
+			}
+		},
 		filtered(list, key) {
 			var word = this.search[key].toLowerCase()
 			return Array.of(list).filter(elem => elem.toLowerCase().includes(word))
