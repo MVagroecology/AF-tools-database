@@ -246,7 +246,7 @@
     ]
   },
   {
-    "id": "time_scales",
+    "id": "time_steps",
     "text": "At which time steps does the tool work?",
     "short_text": "Time step",
     "filter": 2,

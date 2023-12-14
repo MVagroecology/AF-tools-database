@@ -51,7 +51,7 @@
   "spatial_scales": [
     "Farm"
   ],
-  "time_scales": [
+  "time_steps": [
     "Yearly"
   ],
   "input_data_protocols": [

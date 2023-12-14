@@ -360,8 +360,8 @@ module.exports = {
                   <p v-for="(scale, index) in tool.spatial_scales" :key="index">{{ scale }}</p>
                 </div>
                 <div class="col-6 text-center">
-                  <p class="btn-small-title">Time scale</p>
-                  <p v-for="(scale, index) in tool.time_scales" :key="index">{{ scale }}</p>
+                  <p class="btn-small-title">Time step</p>
+                  <p v-for="(time, index) in tool.time_steps" :key="index">{{ time }}</p>
                 </div>
                 <div class="col-6 text-center">
                   <p class="btn-small-title">Stack</p>
