@@ -677,6 +677,12 @@
     ]
   },
   {
+    "id": "digitaf_tool_demo_video",
+    "text": "If available, what is the link to this tool's demonstration video?",
+    "type": "string",
+    "required": false
+  },
+  {
     "id": "feedback_tool_info",
     "text": "Is there any relevant information about the tool that hasn't been collected in the previous questions?",
     "type": "string",
