@@ -30,6 +30,17 @@
     "required": true
   },
   {
+    "id": "primary_purpose",
+    "text": "What is the primary purpose of tool?",
+    "type": "array of tags",
+    "required": true,
+    "answers": [
+      "Research",
+      "Education and training",
+      "Decision support"
+    ]
+  },
+  {
     "id": "keywords",
     "text": "Which keywords best describe the tool?",
     "type": "array of strings",

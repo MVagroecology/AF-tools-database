@@ -5,6 +5,9 @@
   "url": "https://www.mvarc.eu/tools/dev/re-livestock_tool",
   "description_brief": "The Re-Livestock tool is a sustainability assessment for farms covering 13 categories of sustainability, developed for the Horizon Europe project Re-Livestock and based on the Public Goods tool",
   "logo_url": "https://www.mvarc.eu/tools/dev/re-livestock_tool/img/re-livestock_logo-white.png",
+  "primary_purpose": [
+    "Decision support"
+  ],
   "keywords": [
     "Sustainability assessment",
     "farm-level"
