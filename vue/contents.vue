@@ -284,6 +284,9 @@ module.exports = {
     </div>
     <div class="row no-gutters">
       <div class="col-3">
+        <div class="col-12 text-center">
+          <p>Know a tool that's not in this database?<br><b>Add it through our <a href="https://forms.gle/cKwFUzGuckhfSHum6" target="_balnk">Google Form</a> or in <a href="https://github.com/euraf/AF-tools-database/blob/main/README.md#the-geek-way" target="_balnk">GitHub.</a></b></p>
+        </div>
         <filtering ref="filtering"></filtering>
       </div>
       <div class="col-9">
