@@ -26,39 +26,112 @@ module.exports = {
       } else {
         return 'img/feature-image-default.svg'
       }
+    },
+    setLinks(text) {
+      const Rexp = /(\b(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)([-A-Z0-9+&@#%?\/=~_|!:,.;]*)[-A-Z0-9+&@#\/%=~_|])/ig;
+      return text.replace(Rexp, "<a href='$1' target='_blank'>$1</a>");
     }
   }
 }
 </script>
 
 <template>
-  <div class="card tool" v-if="tool">
-    <img class="card-img-top" :src="imageLink(tool)" :alt="tool.name">
-    <div class="card-body row">
-      <div class="col-12">
-        <h5 class="card-title text-center"><b><router-link :to="tool.id">{{ tool.name }}</router-link></b></h5>
+  <div>
+    <div class="note text-center mb-2">
+      <p>This tool is in constant change. The previous version, and old database, is still available  <a target="_blank" href="https://mvarc.eu/tools/dev/digitaf_tools/">here</a>.</p>
+    </div>
+    <div class="note text-left mb-2">
+      <router-link to="/"><i class="fas fa-angle-left"></i> Go back to the database</router-link>
+    </div>
+    <div v-if="tool" class="tool card bg-white p-4">
+      <div class="row">
+        <div class="col-6">
+          <h5 class="card-title"><b>{{ tool.name }}</b></h5>
+        </div>
+        <div class="col-6 note text-right">
+          <p>Do you want to improve this tool's info? <a :href="'https://github.com/euraf/AF-tools-database/edit/main/tools/' + tool.id + '.json'" target="_balnk">Edit it here in GitHub.</a></p>
+        </div>
       </div>
-      <div class="col-9 text-center">
-        <p class="card-text">{{tool.description_brief}}</p>
-      </div>
-      <div class="col-12 text-center my-3">
-        <p><span class="btn-crop mr-1 px-3 py-1" v-if="tool.system_components.includes('Crop')">Crop</span> <span class="btn-tree mr-1 px-3 py-1" v-if="tool.system_components.includes('Tree')">Tree</span> <span class="btn-livestock mr-1 px-3 py-1" v-if="tool.system_components.includes('Livestock')">Livestock</span> <span class="btn-people mr-1 px-3 py-1" v-if="tool.system_components.includes('People')">People</span></p>
-      </div>
-      <div class="col-6 text-center">
-        <p class="btn-small-title">Spatial scale</p>
-        <p v-for="(scale, index) in tool.spatial_scales" :key="index">{{ scale }}</p>
-      </div>
-      <div class="col-6 text-center">
-        <p class="btn-small-title">Time scale</p>
-        <p v-for="(scale, index) in tool.time_scales" :key="index">{{ scale }}</p>
-      </div>
-      <div class="col-6 text-center">
-        <p class="btn-small-title">Stack</p>
-        <p v-for="(scale, index) in tool.software_proglanguage" :key="index">{{ scale }}</p>
-      </div>
-      <div class="col-6 text-center">
-        <p class="btn-small-title">License</p>
-        <p>{{ tool.license }}</p>
+      <div class="row">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-12 mb-4">
+              <img class="img-fluid tool-cover" :src="imageLink(tool)" :alt="tool.name">
+            </div>
+            <div class="col-12">
+              <p class="btn-small-title">Link</p>
+              <p><a :href="tool.url" target="_blank">{{  tool.url }}</a></p>
+            </div>
+            <div class="col-12">
+              <p class="btn-small-title">Description</p>
+              <p v-if="tool.description_full">{{ tool.description_full }}</p>
+              <p v-else>{{ tool.description_brief }}</p>
+            </div>
+            <div class="col-12">
+              <p class="btn-small-title">Keywords</p>
+              <p>{{ tool.keywords.join(', ') }}</p>
+            </div>
+            <div class="col-12">
+              <p class="btn-small-title">Developed by</p>
+              <p class="mb-0" v-html="setLinks(tool.developers)"></p>
+              <p v-html="setLinks(tool.organizations)"></p>
+            </div>
+            <div class="col-12">
+              <p class="btn-small-title">Contact</p>
+              <p>{{ tool.contact }}</p>
+            </div>
+            <div class="col-6" v-if="tool.year_release">
+              <p class="btn-small-title">Release year</p>
+              <p>{{ tool.year_release }}</p>
+            </div>
+            <div class="col-6" v-if="tool.year_lastupdate">
+              <p class="btn-small-title">Last update</p>
+              <p>{{ tool.year_lastupdate }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="col-12">
+            <p class="btn-small-title">Status</p>
+            <p>{{ tool.status }}</p>
+          </div>
+          <div class="col-12">
+            <p class="btn-small-title mb-2">Systems</p>
+            <p><span class="btn-crop mr-1 px-3 py-1" v-if="tool.systems.includes('Agriculture')">Agriculture</span> <span class="btn-tree mr-1 px-3 py-1" v-if="tool.systems.includes('Forestry')">Forestry</span> <span class="btn-agroforestry mr-1 px-3 py-1" v-if="tool.systems.includes('Agroforestry')">Agroforestry</span> <span class="btn-natural mr-1 px-3 py-1" v-if="tool.systems.includes('Natural/Wild')">Natural/Wild</span></p>
+          </div>
+          <div class="col-12">
+            <p class="btn-small-title mb-2">System components</p>
+            <p><span class="btn-crop mr-1 px-3 py-1" v-if="tool.system_components.includes('Crop')">Crop</span> <span class="btn-tree mr-1 px-3 py-1" v-if="tool.system_components.includes('Tree')">Tree</span> <span class="btn-livestock mr-1 px-3 py-1" v-if="tool.system_components.includes('Livestock')">Livestock</span> <span class="btn-people mr-1 px-3 py-1" v-if="tool.system_components.includes('People')">People</span></p>
+          </div>
+          <div class="col-12">
+            <p class="btn-small-title">Indicators</p>
+            <p>{{ tool.indicators.join(', ') }}</p>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-6">
+                <p class="btn-small-title">Spatial scale</p>
+                <p v-for="(scale, index) in tool.spatial_scales" :key="'spatial'+index" :class="{ 'mb-0': index < tool.spatial_scales.length-1}">{{ scale }}</p>
+              </div>
+              <div class="col-6">
+                <p class="btn-small-title">Time step</p>
+                <p v-for="(time, index) in tool.time_steps" :key="'time-'+index" :class="{ 'mb-0': index < tool.time_steps.length-1}">{{ time }}</p>
+              </div>
+              <div class="col-6">
+                <p class="btn-small-title">Stack</p>
+                <p v-for="(scale, index) in tool.software_proglanguage" :key="'stack'+index" :class="{ 'mb-0': index < tool.software_proglanguage.length-1}">{{ scale }}</p>
+              </div>
+              <div class="col-6">
+                <p class="btn-small-title">License</p>
+                <p>{{ tool.license }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <p class="btn-small-title">Mininum requirements to operate de tool</p>
+            <p v-for="req, index in tool.minimum_req" :key="'min_req_'+index" :class="{ 'mb-0': index < tool.minimum_req.length-1}">{{ req }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

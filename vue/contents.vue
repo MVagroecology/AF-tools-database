@@ -298,7 +298,7 @@ module.exports = {
         <div class="col-12 row no-gutters tools">
           <div class="col-6 mb-4" :class="{ 'pr-2': isEven(idx), 'pl-2': !isEven(idx) }" v-for="tool, idx in filteredTools" :key="tool.id">
             <div class="card tool">
-              <img class="card-img-top" :src="imageLink(tool)" :alt="tool.name">
+              <img class="card-img-top tool-cover" :src="imageLink(tool)" :alt="tool.name">
               <div class="card-body row">
                 <div class="col-12">
                   <h5 class="card-title text-center"><b><router-link :to="tool.id" :tool="tool">{{ tool.name }}</router-link></b></h5>

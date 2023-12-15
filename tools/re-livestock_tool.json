@@ -9,9 +9,9 @@
     "Sustainability assessment",
     "farm-level"
   ],
-  "developers": "Based on the Public Goods tool developed by Laurence Smith at the Organic Research Centre and developed for online use by MVARC",
-  "organizations": "MVARC, University of Reading",
-  "contact": "https://mvarc.eu/",
+  "developers": "Based on the Public Goods tool (https://www.organicresearchcentre.com/our-research/research-project-library/public-goods-tool-2/) developed by Laurence Smith at the Organic Research Centre and developed for online use by MVARC.",
+  "organizations": "MVARC (https://mvarc.eu/), University of Reading (https://www.reading.ac.uk/)",
+  "contact": "info@mvarc.eu",
   "description_full": "",
   "status": "Under development",
   "software_proglanguage": [
