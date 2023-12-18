@@ -359,6 +359,7 @@
     "required": true,
     "answers": [
       "Researcher",
+      "Student",
       "Policy-maker",
       "Farmer",
       "Landowner",
