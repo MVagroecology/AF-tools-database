@@ -136,7 +136,7 @@ table.fair-score, table.fair-score tr, table.fair-score td {
 .rotate180 { transform: rotate(180deg); }
 .rotate270 { transform: rotate(270deg); }
 
-.card-img-top .tool-cover {
+.card-img-top.tool-cover {
   width: 100%;
   height: 10vw;
   object-fit: cover;
