@@ -1,6 +1,7 @@
 <script>
 module.exports = {
   name: "filtering",
+	props: [ "tools" ],
   data() {
     return {
 			search: {},
@@ -58,7 +59,7 @@ module.exports = {
 						</div>
 
 						<!-- Checkboxes -->
-						<checkbox :filter="filter" :search="search"></checkbox>
+						<checkbox :filter="filter" :search="search" :tools="tools"></checkbox>
 						<!--div class="form-check" v-for="(answer, index) in filter.answers" :key="index">
 							<input class="form-check-input" type="checkbox" :value="answer" id="defaultCheck1" v-model="search[filter.id]">
 							<label class="form-check-label" for="defaultCheck1">
