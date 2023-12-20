@@ -255,7 +255,7 @@ module.exports = {
               if ('answers' in filter) {
 
                 if (filter.type.includes('array')) {
-                  yesOrNo = yesOrNo && toolValue.some(a => filter_value.includes(a))
+                  yesOrNo = yesOrNo && filter_value.every(a => toolValue.includes(a))
                 } else {
                   yesOrNo = yesOrNo && filter_value.includes(toolValue)
                 }
