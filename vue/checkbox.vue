@@ -32,7 +32,16 @@ module.exports = {
 			return arr.sort((a, b) => this.numberAvailable(a) > this.numberAvailable(b) ? -1 : 1)
 		},*/
 		numberAvailable(answer) {
-			return this.tools.filter(tool => tool[this.filter.id] == answer).length
+			var filter_id = this.filter.id
+
+			return this.tools.filter(function(tool) {
+				var toolAnswer = tool[filter_id]
+				if (Array.isArray(toolAnswer)) {
+					return toolAnswer.includes(answer)
+				} else {
+					return tool[filter_id] == answer
+				}
+			}).length
 		}
 	}
 }
