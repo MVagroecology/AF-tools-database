@@ -32,7 +32,9 @@
   {
     "id": "primary_purpose",
     "text": "What is the primary purpose of tool?",
+    "short_text": "Primary purpose",
     "type": "array of tags",
+    "filter": 2,
     "required": true,
     "answers": [
       "Research",
