@@ -41,7 +41,7 @@ module.exports = {
       var F2 = tool.documentation_available == "Yes" ? 1 : 0
       var F3 = tool.listed_other_databases == "Yes" ? 1 : 0
       
-      return Math.round(((F1 + F2 + F3) / 3) * 10) * 10
+      return tool.findability_score = Math.round(((F1 + F2 + F3) / 3) * 10) * 10
     },
     calculateA(tool) {
       var A1 = 0
@@ -86,7 +86,7 @@ module.exports = {
         A5 = 1 // needs improvement - scores 1 if any material exists
       }
       
-      return Math.round(((A1 + A2 + A3 + A4 + A5) / 5) * 10) * 10
+      return tool.accessibility_score = Math.round(((A1 + A2 + A3 + A4 + A5) / 5) * 10) * 10
     },
     calculateI(tool) {
 
@@ -164,7 +164,7 @@ module.exports = {
       if (tool.input_data_formats && this.arrayHasAnswer(tool.input_data_formats)) count++
       if (tool.previous_versions_available && tool.previous_versions_available !== "Only one version exists") count++
       
-      return Math.round(((I1 + I2 + I3 + I4 + I5 + I6) / count) * 10) * 10
+      return tool.interoperability_score = Math.round(((I1 + I2 + I3 + I4 + I5 + I6) / count) * 10) * 10
     },
     calculateR(tool) {
       var R1 = 0
@@ -214,7 +214,7 @@ module.exports = {
         }[tool.documentation_contribute]
       }
 
-      return Math.round(((R1 + R2 + R3 + R4) / 4) * 10) * 10
+      return tool.reusability_score = Math.round(((R1 + R2 + R3 + R4) / 4) * 10) * 10
     },
     updateSorting() {
       if (!('sorting' in this.$refs)) {

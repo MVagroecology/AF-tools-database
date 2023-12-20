@@ -23,9 +23,9 @@ module.exports = {
 					}
 				},
 				accessbility: {
-					name: "Accessbility score",
+					name: "Accessibility score",
 					fn: function(arr) {
-						return arr.sort((a, b) => a.accessbility_score > b.accessbility_score ? -1 : 1)
+						return arr.sort((a, b) => a.accessibility_score > b.accessibility_score ? -1 : 1)
 					}
 				},
 				interoperability: {
