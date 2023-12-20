@@ -23,14 +23,14 @@ module.exports = {
 	methods: {
 		removeOther(arr) {
 			if (arr[arr.length-1] == "Other...") {
-				return this.orderByFrequency(arr.slice(0, -1))
+				return arr.slice(0, -1) //this.orderByFrequency(arr.slice(0, -1))
 			} else {
-				return this.orderByFrequency(arr)
+				return arr //this.orderByFrequency(arr)
 			}
 		},
-		orderByFrequency(arr) {
+		/*orderByFrequency(arr) { // does not work properly with v-for, needs review
 			return arr.sort((a, b) => this.numberAvailable(a) > this.numberAvailable(b) ? -1 : 1)
-		},
+		},*/
 		numberAvailable(answer) {
 			return this.tools.filter(tool => tool[this.filter.id] == answer).length
 		}
