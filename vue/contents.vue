@@ -40,6 +40,7 @@ module.exports = {
       var F1 = tool.url_persistent == "Yes" ? 1 : 0
       var F2 = tool.documentation_available == "Yes" ? 1 : 0
       var F3 = tool.listed_other_databases == "Yes" ? 1 : 0
+      
       return Math.round(((F1 + F2 + F3) / 3) * 10) * 10
     },
     calculateA(tool) {
@@ -82,8 +83,9 @@ module.exports = {
       }
       var A5 = 0
       if (tool.url_training_materials) {
-        A5 = tool.url_training_materials.score
+        A5 = 1 // needs improvement - scores 1 if any material exists
       }
+      
       return Math.round(((A1 + A2 + A3 + A4 + A5) / 5) * 10) * 10
     },
     calculateI(tool) {
@@ -92,7 +94,7 @@ module.exports = {
       if (tool.software_proglanguage) {
         var individual_score = []
         for (proglang of tool.software_proglanguage) {
-          individual_score.push({
+          var proglang_scores = {
             "C": 1,
             "C++": 1,
             "C#": 0.2,
@@ -108,8 +110,14 @@ module.exports = {
             "Ruby": 1,
             "TypeScript": 1,
             "Visual Basic / VBScript": 0.5,
-            "Capsis platform": 1
-          }[proglang])
+            "Capsis platform": 1,
+            "Oracle Apex": 0.2 // proprietary, paid
+          }
+          if (proglang in proglang_scores) {
+            individual_score.push(proglang_scores[proglang])
+          } else {
+            console.log(proglang + " not in I1 scoring list.")
+          }
         }
         
         I1 = this.calculateAverageOfArray(individual_score)
