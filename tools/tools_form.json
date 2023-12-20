@@ -372,81 +372,19 @@
     ]
   },
   {
-    "id": "use_research",
-    "text": "What might be its primary usage or purpose? [Research]",
-    "type": "integer (1, 0, -1)",
+    "id": "usages",
+    "text": "What might be its primary usage or purpose?",
+    "type": "integer (Most relevant 1, Relevant 0, Least relevant -1)",
     "required": true,
-    "answers": [
-      "Most relevant (1)",
-      "Relevant (0)",
-      "Least relevant (-1)"
-    ]
-  },
-  {
-    "id": "use_education",
-    "text": "What might be its primary usage or purpose? [Education]",
-    "type": "integer",
-    "required": true,
-    "answers": [
-      "Most relevant (1)",
-      "Relevant (0)",
-      "Least relevant (-1)"
-    ]
-  },
-  {
-    "id": "use_planning",
-    "text": "What might be its primary usage or purpose? [Planning/Design]",
-    "type": "integer",
-    "required": true,
-    "answers": [
-      "Most relevant (1)",
-      "Relevant (0)",
-      "Least relevant (-1)"
-    ]
-  },
-  {
-    "id": "use_implementation",
-    "text": "What might be its primary usage or purpose? [Implementation]",
-    "type": "integer",
-    "required": true,
-    "answers": [
-      "Most relevant (1)",
-      "Relevant (0)",
-      "Least relevant (-1)"
-    ]
-  },
-  {
-    "id": "use_management",
-    "text": "What might be its primary usage or purpose? [Management]",
-    "type": "integer",
-    "required": true,
-    "answers": [
-      "Most relevant (1)",
-      "Relevant (0)",
-      "Least relevant (-1)"
-    ]
-  },
-  {
-    "id": "use_monitoring",
-    "text": "What might be its primary usage or purpose? [Monitoring/Evaluating]",
-    "type": "integer",
-    "required": true,
-    "answers": [
-      "Most relevant (1)",
-      "Relevant (0)",
-      "Least relevant (-1)"
-    ]
-  },
-  {
-    "id": "use_forecasting",
-    "text": "What might be its primary usage or purpose? [Forecasting]",
-    "type": "integer",
-    "required": true,
-    "answers": [
-      "Most relevant (1)",
-      "Relevant (0)",
-      "Least relevant (-1)"
-    ]
+    "answers": {
+      "Research": "1, 0 or -1",
+      "Education": "1, 0 or -1",
+      "Planning/Design": "1, 0 or -1",
+      "Implementation": "1, 0 or -1",
+      "Management": "1, 0 or -1",
+      "Monitoring/Evaluating": "1, 0 or -1",
+      "Forecasting": "1, 0 or -1"
+    }
   },
   {
     "id": "languages",

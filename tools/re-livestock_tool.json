@@ -81,13 +81,15 @@
     "Retailer",
     "Final consumer"
   ],
-  "use_research": "Relevant",
-  "use_education": "Relevant",
-  "use_planning": "Relevant",
-  "use_implementation": "Relevant",
-  "use_management": "Most relevant",
-  "use_monitoring": "Most relevant",
-  "use_forecasting": "Most relevant",
+  "usages": {
+    "Research": 0,
+    "Education": 0,
+    "Planning/Design": 0,
+    "Implementation": 0,
+    "Management": 1,
+    "Monitoring/Evaluating": 1,
+    "Forecasting": 1
+  },
   "languages": [
     "Dutch",
     "English",
