@@ -101,6 +101,5 @@
   "documentation_contribute": "No",
   "digitaf_tool": "Yes",
   "digitaf_tool_ll": ["Netherlands LL"],
-  "feedback_tool_info": "",
-  "feedback_general": "Some of the questions refer specifically to what is modelled /assessed, but doesn't provide the \"not relevant\" option (which is valid sometimes in the case of Betula, because it is not a predictive model)"
+  "feedback_tool_info": ""
 }
