@@ -180,6 +180,7 @@ module.exports = {
           "Creative Commons BY-ND": 0.2,
           "Creative Commons BY-NC-ND": 0.2,
           "Creative Commons Zero (CC0)": 1,
+          "Proprietary": 0,
           "Not stated": 0,
           "Don't know": 0
         }[tool.license]
