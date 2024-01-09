@@ -1,5 +1,11 @@
 [
   {
+    "id": "id",
+    "text": "ID (slug - exatcly the same used to name the .json file)",
+    "type": "string",
+    "required": true
+  },
+  {
     "id": "email",
     "text": "Email",
     "type": "email",
@@ -606,7 +612,7 @@
     "text": "If applicable, in which Living Labs is it being tested?",
     "short_text": "Tested in DigitAF Living Labs",
     "filter": 3,
-    "type": "tag",
+    "type": "array of tags",
     "required": false,
     "answers": [
       "Czech Republic LL",
