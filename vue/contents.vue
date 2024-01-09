@@ -119,6 +119,7 @@ module.exports = {
             individual_score.push(proglang_scores[proglang])
           } else {
             console.log("[ " + tool.id + " ] Programming language [ " + proglang + " ] not in I1 scoring list.")
+            individual_score.push(0)
           }
         }
         
