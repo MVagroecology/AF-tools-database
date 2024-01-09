@@ -68,3 +68,62 @@ function filterObject(obj, callback) {
   return Object.fromEntries(Object.entries(obj).
     filter(([key, val]) => callback(val, key)));
 }
+
+function checkNewTool(toolSlug) {
+	
+	$.getJSON('tools/' + toolSlug + '.json', function (tool) {
+		$.getJSON('tools/tools_form.json', function (form) {
+			
+			for (question of form) {
+
+				if (question.required) {
+					if (question.id in tool && tool[question.id]) {
+						
+					} else {
+						console.log('Missing required » ' + question.id)
+						continue
+					}
+				}
+
+				if ('answers' in question) {
+
+					if (question.id == 'usages') {
+						for (usage_type in question.answers) {
+							if (usage_type in tool.usages) {
+
+							} else {
+								console.log('Missing a usage classification » ' + usage_type)
+							}
+						}
+					} else if (question.type.includes('array')) {
+						
+						if (question.id in tool && Array.isArray(tool[question.id])) {
+							if (tool[question.id].every(a => question.answers.includes(a))) {
+
+							} else {
+								console.log('Some answers do not match the ones available » ' + question.id)
+							}
+						} else {
+							console.log('Missing, or is not an array, » ' + question.id)
+						}
+
+					} else {
+
+						if (question.id in tool && tool[question.id]) {
+							if (question.answers.includes(tool[question.id])) {
+
+							} else {
+								console.log('The answer does not match the ones available » ' + question.id)
+							}
+						} else {
+							//console.log('Missing » ' + question.id)
+						}
+					}
+
+				}
+			}
+			console.log('Check ended.')
+		})
+	});
+
+}
