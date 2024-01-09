@@ -93,7 +93,7 @@
   "url_training_materials": "",
   "documentation_contribute": "No",
   "digitaf_tool": "Yes",
-  "digitaf_tool_ll": "Czech Republic LL",
+  "digitaf_tool_ll": [ "Czech Republic LL" ],
   "feedback_tool_info": "",
   "feedback_general": "",
   "primary_purpose": [

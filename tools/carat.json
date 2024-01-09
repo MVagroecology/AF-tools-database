@@ -101,7 +101,7 @@
   "url_training_materials": "https://ilvo.vlaanderen.be/uploads/documents/CARAT-manual.pdf\nhttps://www.youtube.com/watch?v=-j93hxZSE2c",
   "documentation_contribute": "Yes",
   "digitaf_tool": "Yes",
-  "digitaf_tool_ll": "",
+  "digitaf_tool_ll": [],
   "feedback_tool_info": "i) we are currently looking at which license will be applicable ii) not all suplementary information of the tool is online yet, but will soon follow",
   "feedback_general": "",
   "primary_purpose": [
