@@ -109,6 +109,7 @@ module.exports = {
             "R": 1,
             "Ruby": 1,
             "Ruby on Rails": 1,
+            "React Native": 1,
             "TypeScript": 1,
             "Visual Basic / VBScript": 0.5,
             "Capsis platform": 1,
