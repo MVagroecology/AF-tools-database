@@ -625,7 +625,7 @@
   },
   {
     "id": "digitaf_tool_demo_video",
-    "text": "If available, what is the link to this tool's demonstration video?",
+    "text": "If available, what is the link to this tool's demonstration video produced as part of the DigitAF project?",
     "type": "string",
     "required": false
   },
