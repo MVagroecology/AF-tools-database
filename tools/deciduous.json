@@ -38,7 +38,7 @@
   "spatial_scales": [
     "Plot"
   ],
-  "time_steps": [ ],
+  "time_steps": [ "Not relevant" ],
 	"time_steps_comment": "once for tree choice",
   "input_data_protocols": [
     "User enters the data directly manually"
