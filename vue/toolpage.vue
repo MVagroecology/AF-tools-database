@@ -131,6 +131,10 @@ module.exports = {
             <p class="btn-small-title">Mininum requirements to operate de tool</p>
             <p v-for="req, index in tool.minimum_req" :key="'min_req_'+index" :class="{ 'mb-0': index < tool.minimum_req.length-1}">{{ req }}</p>
           </div>
+          <div class="col-12" v-if="'digitaf_tool_demo_video' in tool && tool.digitaf_tool_demo_video">
+            <p class="btn-small-title mb-2">DigitAF demonstration video</p>
+            <iframe title='YouTube video player' type="text/html" width='640' height='390' :src="'https://www.youtube.com/embed/' + tool.digitaf_tool_demo_video.slice(tool.digitaf_tool_demo_video.indexOf('=')+1)" frameborder='0' allowFullScreen></iframe>
+          </div>
         </div>
       </div>
     </div>
