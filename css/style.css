@@ -261,3 +261,12 @@ a:visited,
 a:focus {
   color: green;
 }
+
+.youtube-video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.demo-video {
+  max-height: 80px;
+}

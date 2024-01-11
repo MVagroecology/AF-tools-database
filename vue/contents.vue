@@ -374,21 +374,28 @@ module.exports = {
                 <div class="col-12 text-center my-3">
                   <p><span class="btn-crop mr-1 px-3 py-1" v-if="tool.system_components.includes('Crop')">Crop</span> <span class="btn-tree mr-1 px-3 py-1" v-if="tool.system_components.includes('Tree')">Tree</span> <span class="btn-livestock mr-1 px-3 py-1" v-if="tool.system_components.includes('Livestock')">Livestock</span> <span class="btn-people mr-1 px-3 py-1" v-if="tool.system_components.includes('People')">People</span></p>
                 </div>
-                <div class="col-6 text-center">
+                <div class="col-4 text-center">
                   <p class="btn-small-title">Spatial scale</p>
                   <p v-for="(scale, index) in tool.spatial_scales" :key="index">{{ scale }}</p>
                 </div>
-                <div class="col-6 text-center">
+                <div class="col-4 text-center">
                   <p class="btn-small-title">Time step</p>
                   <p v-for="(time, index) in tool.time_steps" :key="index">{{ time }}</p>
                 </div>
-                <div class="col-6 text-center">
+                <div class="col-4 text-center">
+                </div>
+                <div class="col-4 text-center">
                   <p class="btn-small-title">Stack</p>
                   <p v-for="(scale, index) in tool.software_proglanguage" :key="index">{{ scale }}</p>
                 </div>
-                <div class="col-6 text-center">
+                <div class="col-4 text-center">
                   <p class="btn-small-title">License</p>
                   <p>{{ tool.license }}</p>
+                </div>
+                <div class="col-4 text-center">
+                  <template v-if="'digitaf_tool_demo_video' in tool && tool.digitaf_tool_demo_video">
+                    <router-link :to="tool.id" :tool="tool"><img class="demo-video img-fluid" src="img/digitaf_demo_video.png"></router-link>
+                  </template>
                 </div>
               </div>
             </div>

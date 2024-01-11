@@ -133,7 +133,7 @@ module.exports = {
           </div>
           <div class="col-12" v-if="'digitaf_tool_demo_video' in tool && tool.digitaf_tool_demo_video">
             <p class="btn-small-title mb-2">DigitAF demonstration video</p>
-            <iframe title='YouTube video player' type="text/html" width='640' height='390' :src="'https://www.youtube.com/embed/' + tool.digitaf_tool_demo_video.slice(tool.digitaf_tool_demo_video.indexOf('=')+1)" frameborder='0' allowFullScreen></iframe>
+            <iframe class="youtube-video" :src="'https://www.youtube.com/embed/' + tool.digitaf_tool_demo_video.slice(tool.digitaf_tool_demo_video.indexOf('=')+1)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
