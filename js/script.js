@@ -46,9 +46,9 @@ app = new Vue({
     getToolsData() {
       var myself = this
 
-			$.getJSON('tools/tools_list.json', function (data) {
+			$.getJSON('https://cdn.jsdelivr.net/gh/euraf/AF-tools-database@master/tools/tools_list.json', function (data) {
 				for (var i = 0; i < data.length; i++) {
-						$.getJSON('tools/' + data[i] + '.json', function (tool) {
+						$.getJSON('https://cdn.jsdelivr.net/gh/euraf/AF-tools-database@master/tools/' + data[i] + '.json', function (tool) {
 								myself.tools.push(tool)
 						});
 				}
@@ -57,7 +57,7 @@ app = new Vue({
 		getFormData() {
       var myself = this
 
-			$.getJSON('tools/tools_form.json', function (form) {
+			$.getJSON('https://cdn.jsdelivr.net/gh/euraf/AF-tools-database@master/tools/tools_form.json', function (form) {
 				myself.form = form
 			})
 		},
