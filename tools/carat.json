@@ -1,9 +1,9 @@
 {
 	"id": "carat",
   "email": "paul.pardon@ilvo.vlaanderen.be",
-  "name": "CARAT (CARbon Agroforestry Tool)",
+  "name": "CARAT - CARbon Agroforestry Tool",
   "url": "https://shiny.ilvo.be/PLANT/CARAT_v3/",
-  "description_brief": "CARAT is a tool to support farmers, researchers and/or policy actors in quantifying above- and belowground carbon stocks of a specific AF field in temperate climatic conditions, and to predict how these stocks evolve over a period of 30 years.",
+  "description_brief": "CARAT (CARbon Agroforestry Tool) is a tool to support farmers, researchers and/or policy actors in quantifying above- and belowground carbon stocks of a specific AF field in temperate climatic conditions, and to predict how these stocks evolve over a period of 30 years.",
   "logo_url": "https://ilvo.vlaanderen.be/uploads/images/_900xAUTO_fit_center-center_none/Afbeelding1_2023-09-19-094021.png",
   "keywords": [
     "Carbon",

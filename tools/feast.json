@@ -1,9 +1,9 @@
 {
 	"id": "feast",
   "email": "J.Tzilivakis@herts.ac.uk",
-  "name": "Farmland Ecosystem Assessment Support Tool (FEAST)",
+  "name": "FEAST - Farmland Ecosystem Assessment Support Tool",
   "url": "https://sitem.herts.ac.uk/aeru/feast/",
-  "description_brief": "The FEAST software is a prototype tool that aims to support the process of assessing and managing farmland landscapes (individual features and whole landscapes) with respect to enhancing their effects on ecosystem services and biodiversity",
+  "description_brief": "The Farmland Ecosystem Assessment Support Tool (FEAST) software is a prototype tool that aims to support the process of assessing and managing farmland landscapes (individual features and whole landscapes) with respect to enhancing their effects on ecosystem services and biodiversity",
   "logo_url": "https://sitem.herts.ac.uk/aeru/feast/graphics/FEAST_logo.png",
   "keywords": [
     "Farmland",
