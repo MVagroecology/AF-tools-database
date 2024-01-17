@@ -1,120 +1,93 @@
+/* Fonts */
 @font-face {
 	font-family: 'Segoe UI';
-	src: url('fonts/segoeui.ttf')  format('truetype');
+	src: url('fonts/segoeui.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'Segoe UI Bold';
-	src: url('fonts/segoeuib.ttf')  format('truetype');
+	src: url('fonts/segoeuib.ttf') format('truetype');
 }
 
+/* Body and general text styles */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #fffbf6;
-  font-size: 15px;
+  font-size: 16px; /* Adjusted base font size */
 }
 
 p {
-  font-size: 15px;
+  font-size: 16px; /* Adjusted base font size */
 }
 
 .note p {
-  font-size: 75%;
+  font-size: 80%; /* Adjusted note font size */
+}
+
+/* Tool card styles */
+.card.tool {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.card.tool:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.card.tool .card-body {
+  padding: 15px;
+}
+
+.card.tool .card-title {
+  margin-top: -27px;
+  margin-bottom: 20px;
+  color: green;
+  font-size: 18px; /* Adjusted tool name font size */
+  background-color: white;
+  padding: 10px 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(33, 33, 33, 0.5);
 }
 
 .card.tool .card-text {
-  font-size: 100%;
+  font-size: 14px; /* Adjusted tool description font size */
 }
 
-.card.tool .btn-crop {
-  color: orange;
-  border: 2px solid orange;
-  width: 100px;
-  font-size: 90%;
+.btn-crop,
+.btn-tree,
+.btn-livestock,
+.btn-people,
+.btn-natural,
+.btn-agroforestry {
+  color: #fff;
+  font-size: 14px;
   font-weight: bold;
   border-radius: 50%;
-}
-
-.card.tool .btn-tree {
-  color: green;
-  border: 2px solid green;
   width: 100px;
-  font-size: 90%;
-  font-weight: bold;
-  border-radius: 50%;
-}
-.card.tool .btn-livestock {
-  color: darkblue;
-  border: 2px solid darkblue;
-  width: 100px;
-  font-size: 90%;
-  font-weight: bold;
-  border-radius: 50%;
-}
-.card.tool .btn-people {
-  color: darkgray;
-  border: 2px solid darkgray;
-  width: 100px;
-  font-size: 90%;
-  font-weight: bold;
-  border-radius: 50%;
-}
-.card.tool .btn-natural {
-  color: gold;
-  border: 2px solid gold;
-  width: 100px;
-  font-size: 90%;
-  font-weight: bold;
-  border-radius: 50%;
-}
-.card.tool .btn-agroforestry {
-  color: yellowgreen;
-  border: 2px solid yellowgreen;
-  width: 100px;
-  font-size: 90%;
-  font-weight: bold;
-  border-radius: 50%;
+  margin-right: 5px;
 }
 
-.btn-small-title {
-  font-size: 75%;
-  color: darkgray;
-  font-style: italic;
-  margin-bottom: 0px;
-}
+.btn-crop { background-color: orange; }
+.btn-tree { background-color: green; }
+.btn-livestock { background-color: darkblue; }
+.btn-people { background-color: darkgray; }
+.btn-natural { background-color: gold; }
+.btn-agroforestry { background-color: yellowgreen; }
 
-.btn-digitaf {
-  font-family: 'Segoe UI Bold';
-  color: #253d5b;
-  font-size: 140%;
-}
-.btn-digitaf:hover {
-  text-decoration: underline;
-}
-
-.sorting select {
-  margin-left: auto; 
-  margin-right: 0;
-  width: 20rem;
-  font-size: 15px;
-}
-
-.sorting p {
-  font-size: 15px;
-  margin-top: 7px;
-  margin-bottom: 0;
-}
-
+/* Fair score styles */
 .h-fair-container {
   position: relative;
 }
 .h-fair {
-  display: inline;
+  display: inline-block;
   height: 2vw;
 }
 .h-fair-title {
   margin: 0;
   padding: 0;
-  font-size: 0.5vw;
+  font-size: 0.8vw; /* Adjusted fair title font size */
   text-align: center;
 }
 .h-fair-score {
@@ -122,8 +95,58 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 0.5vw;
+  font-size: 0.8vw; /* Adjusted fair score font size */
   color: white;
+}
+
+/* Image styles */
+.card.tool .card-img-top.tool-cover {
+  width: 100%;
+  height: 200px; /* Adjusted tool cover image height */
+  object-fit: cover;
+  border-bottom: 1px solid #ccc;
+}
+
+.details-block {
+  margin-bottom: 5px;
+}
+.details-block p:not(.btn-small-title) {
+  margin-bottom: 0;
+}
+
+
+/* Small title styles */
+.btn-small-title {
+  font-size: 12px;
+  color: darkgray;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+/* Button hover styles */
+.btn-digitaf {
+  font-family: 'Segoe UI Bold';
+  color: #253d5b;
+  font-size: 18px;
+  transition: text-decoration 0.3s;
+}
+
+.btn-digitaf:hover {
+  text-decoration: underline;
+}
+
+/* Sorting styles */
+.sorting select {
+  margin-left: auto;
+  margin-right: 0;
+  width: 20rem;
+  font-size: 16px; /* Adjusted sorting font size */
+}
+
+.sorting p {
+  font-size: 16px; /* Adjusted sorting font size */
+  margin-top: 7px;
+  margin-bottom: 0;
 }
 
 table.fair-score, table.fair-score tr, table.fair-score td {
@@ -135,26 +158,18 @@ table.fair-score, table.fair-score tr, table.fair-score td {
 .rotate90 { transform: rotate(90deg); }
 .rotate180 { transform: rotate(180deg); }
 .rotate270 { transform: rotate(270deg); }
+.mb-0 { margin-bottom: 0; }
+.mb-50 { margin-bottom: 50px; }
 
-.card-img-top.tool-cover {
-  width: 100%;
-  height: 10vw;
-  object-fit: contain;
-}
+/* Filtering */
 
-.mb-0 {
-  margin-bottom: 0;
-}
-
-.mb-50 {
-  margin-bottom: 50px;
-}
 .card-header .btn-link {
   color: green;
   text-transform: uppercase;
   font-size: 60%;
   font-weight: bold;
 }
+
 .card-title {
   margin-bottom: 1.25rem;
   color: green;
@@ -180,15 +195,7 @@ table.fair-score, table.fair-score tr, table.fair-score td {
   padding: 0;
 }
 
-.box {
-  transition: box-shadow .3s;
-  border-radius:10px;
-  border: 1px solid #ccc;
-  background: #fff;
-}
-
-.tool-cover,
-.tool-img {
+.tool-cover {
   background: repeating-linear-gradient(
     45deg,
     rgba(0, 128, 0, 0.05),
@@ -196,14 +203,6 @@ table.fair-score, table.fair-score tr, table.fair-score td {
     rgba(0, 128, 0, 0.07) 20px,
     rgba(0, 128, 0, 0.07) 40px
   );
-}
-
-.tool-img {
-  max-height: 100px;
-}
-
-.box:hover {
-  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .accordion button[data-toggle="collapse"]::after {
@@ -269,4 +268,28 @@ a:focus {
 
 .demo-video {
   max-height: 80px;
+}
+
+.score-bar {
+  display: flex;
+  margin-bottom: 0px;
+  margin-bottom: 2px;
+}
+
+.bar {
+  height: 15px;
+  width: 80%;
+  display: flex;
+  text-align: left;
+}
+.bar p {
+  margin-top: 2px;
+  width: 25%;
+  font-size: 10px;
+  margin-left: 2px;
+}
+.label {
+  margin-bottom: 0px;
+  font-size: 12px;
+  width: 20%;
 }

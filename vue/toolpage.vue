@@ -43,7 +43,7 @@ module.exports = {
     <div class="note text-left mb-2">
       <router-link to="/"><i class="fas fa-angle-left"></i> Go back to the database</router-link>
     </div>
-    <div v-if="tool" class="tool card bg-white p-4">
+    <div v-if="tool" class="toolpage card bg-white p-4">
       <div class="row">
         <div class="col-6">
           <h5 class="card-title"><b>{{ tool.name }}</b></h5>
