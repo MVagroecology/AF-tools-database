@@ -150,8 +150,8 @@ module.exports = {
 
       var I3 = 0
       if (tool.input_data_formats) {
-        if (tool.input_data_protocols.includes("Widely used file formats (CSV, JSON, XML, etc.)")) I3 = 1
-        if (tool.input_data_protocols.includes("HTTP (query string parameters, data in request body & file uploads)")) I3 = 1
+        if (tool.input_data_formats.includes("Widely used file formats (CSV, JSON, XML, etc.)")) I3 = 1
+        if (tool.input_data_formats.includes("HTTP (query string parameters, data in request body & file uploads)")) I3 = 1
       }
 
       var I4 = 0
