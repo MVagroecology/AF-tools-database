@@ -2,7 +2,7 @@
 	"id": "yieldsafe_v2",
   "email": "p.burgess@cranfield.ac.uk",
   "name": "Yield-SAFE v2",
-  "url": "https://cord.cranfield.ac.uk/articles/code/Yield-SAFE_v2_-_Biophysical_model_for_tree_and_crop_yields_in_agroforestry/24250549",
+  "url": "https://doi.org/10.17862/cranfield.rd.24250549.v2",
   "description_brief": "Yield-SAFE is a spreadsheet-based biophysical model for predicting tree and crop yields in arable, forest, and agroforestry systems on a daily time-step. ",
   "logo_url": "https://mvarc.eu/tools/dev/AF-tools-database/img/yieldsafe_v2.png",
   "keywords": [
